@@ -1,0 +1,102 @@
+<div id="step1" class="container-fluid">
+<form id="userRegisteration"  style="width:100%"  >
+
+	<div class="row">
+	  <div class="col-xs-6 col-md-6">
+	    <div class="form-group">
+			<label for="name">Name *</label>
+	  		<input type="text" id="name" class="form-control" placeholder="Name" onblur="validate(this);" pattern="[a-zA-Z]{3,20}" required>
+	  		<small id="nameHelp" class="text-danger">
+	          Name Must be 3-20 characters long.
+	        </small>
+	        <small id="nameError" class="text-danger">
+	          This name already exists, please enter a different name.
+	        </small>
+		</div>
+	  </div>
+	   
+	  <div class="col-xs-6 col-md-6">
+		    <div class="form-group">
+			    <label for="email">Email *</label>
+			  	<input type="text" id="email" class="form-control" placeholder="username@email.com" onblur="validate(this);" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
+			  	<small id="emailHelp" class="text-danger">
+		          Email must be in this pattern username@email.com.
+		        </small>
+		        <small id="emailError" class="text-danger">
+	          		This email already exists, please choose a different email.
+	        	</small>
+			</div>
+	   </div>
+	</div>
+	<div class="row">
+		<div class="col-xs-6 col-md-6">
+			<div class="form-group">
+				<label for="password">Password *</label>
+		  		<input type="Password" id="password" class="form-control" placeholder="Password"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" onblur="validate(this);" Required>
+		  		<small id="passwordHelp" class="text-danger">
+		          Password Must be 8 characters, should contain at least one digit or special character and one char upper case.
+		        </small>
+			</div>
+	    </div>
+	    <div class="col-xs-6 col-md-6">
+	    	<div class="form-group">
+				 <label for="basic-url">Confirm Password *</label>
+				  <input type="Password" id="confirmPassword" class="form-control" style="width:100%" placeholder="Confirm Password" onchange="check(this);" onblur="validate(this);" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+				  <small id="confirmPasswordHelp" class="text-danger">
+		          Confirm password Must be 8 characters, should contain at least one digit or special character.
+		        </small>
+			</div>  
+	    </div>
+	</div>
+	<div class="row">
+		<div class="col-xs-6 col-md-6">
+			<div class="form-group">
+			  <label for="phoneNumber">Phone Number </label>
+			  <input type="text" class="form-control" id="phoneNumber" pattern="^[0-9\-\+\s\(\)]*$" onblur="validate(this);">
+			  <small id="phoneNumberHelp" class="text-danger">
+		          Phone number is invalid.
+		        </small>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12 col-md-12">
+		<div class="form-group">
+			<label for="address">Address *</label>
+	  		<input type="text" class="form-control" placeholder="Address" id="address" required>
+		</div>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-xs-12 col-md-12">
+		
+			<div class="g-recaptcha" data-sitekey="6LfW7UQUAAAAAHu7bu3NxnoTMn7wGfYMgu7IedYx"></div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12 col-md-12">
+			<div id="result"></div>
+		</div>
+	</div>
+	<div class="row" id="StepError" style="display:none;">
+			<div class="col-xs-12 col-md-12 alert alert-danger" role="alert" >
+				Oops! Unfortunately there is an error please fix and try registering again.
+			</div>
+		</div>
+	<div class="row">
+		<div class="col-xs-12 col-md-12 form-group" >
+			
+	    		<button type="button"  class="btn btn-primary" class="(userRegisteration.name.$valid && userRegisteration.email.$valid && userRegisteration.password.$valid && userRegisteration.phoneNumber.$valid  )? '': disabled"  id="btn1" style="float:right;" disabled>Submit</button>
+			
+		</div>
+	</div>
+</form>
+</div>
+<div id="step2" class="container-fluid" style="display:none;">
+	<div class="row">
+		<div class="col-xs-12 col-md-12 alert alert-success" role="alert">
+			Congratulations! You successfully registered to K15t Meetup.
+		</div>
+	</div>
+</div>
